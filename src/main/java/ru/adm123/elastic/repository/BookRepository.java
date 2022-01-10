@@ -12,6 +12,6 @@ import ru.adm123.elastic.model.Book;
 public interface BookRepository extends ElasticsearchRepository<Book, Long> {
 
     @NonNull
-    Iterable<Book> findAllByAuthorId(int authorId);
+    Iterable<Book> findAllByAuthorId(long author_id);
 
 }

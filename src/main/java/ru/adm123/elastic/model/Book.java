@@ -8,6 +8,8 @@ import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
 
+import java.util.Date;
+
 /**
  * @author Dmitry Ushakov at 24.11.2021
  */
@@ -22,6 +24,8 @@ public class Book {
     private long id;
     @Field(type = FieldType.Text)
     private String title;
+    @Field(type = FieldType.Date)
+    private Date created;
     @Field(type = FieldType.Nested, includeInParent = true)
     private Author author;
 

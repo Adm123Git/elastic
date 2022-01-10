@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
-import ru.adm123.elastic.model.Author;
 import ru.adm123.elastic.model.Book;
 import ru.adm123.elastic.repository.BookRepository;
 

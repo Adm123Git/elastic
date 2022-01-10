@@ -5,6 +5,8 @@ import org.springframework.stereotype.Component;
 import ru.adm123.elastic.model.Author;
 import ru.adm123.elastic.model.Book;
 
+import java.util.Date;
+
 /**
  * @author Dmitry Ushakov at 24.11.2021
  */
@@ -15,7 +17,7 @@ public class BookFactory {
     public Book getNewBook(long id,
                            String title,
                            Author author) {
-        return new Book(id, title, author);
+        return new Book(id, title, new Date(), author);
     }
 
 }
