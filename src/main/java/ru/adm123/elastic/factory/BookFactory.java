@@ -9,6 +9,7 @@ import java.util.Date;
 
 /**
  * @author Dmitry Ushakov at 24.11.2021
+ * Вспомогательный класс для заполнения базы в демо-приложении
  */
 @Component
 public class BookFactory {
