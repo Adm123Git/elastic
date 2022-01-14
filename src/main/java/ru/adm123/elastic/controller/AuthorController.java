@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ru.adm123.elastic.model.Author;
 import ru.adm123.elastic.model.Book;
-import ru.adm123.elastic.service.AuthorService;
+import ru.adm123.elastic.service.entity.AuthorService;
 
 /**
  * @author Dmitry Ushakov at 28.11.2021

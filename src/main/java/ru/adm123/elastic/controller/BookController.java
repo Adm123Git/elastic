@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ru.adm123.elastic.model.Book;
-import ru.adm123.elastic.service.BookService;
+import ru.adm123.elastic.service.entity.BookService;
 
 /**
  * @author Dmitry Ushakov at 28.11.2021

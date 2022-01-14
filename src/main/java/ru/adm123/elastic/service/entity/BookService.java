@@ -1,4 +1,4 @@
-package ru.adm123.elastic.service;
+package ru.adm123.elastic.service.entity;
 
 import org.springframework.lang.NonNull;
 import ru.adm123.elastic.model.Book;

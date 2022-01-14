@@ -1,4 +1,4 @@
-package ru.adm123.elastic.service.impl;
+package ru.adm123.elastic.service.entity.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
@@ -8,7 +8,7 @@ import ru.adm123.elastic.model.Author;
 import ru.adm123.elastic.model.Book;
 import ru.adm123.elastic.repository.AuthorRepository;
 import ru.adm123.elastic.repository.BookRepository;
-import ru.adm123.elastic.service.AuthorService;
+import ru.adm123.elastic.service.entity.AuthorService;
 
 /**
  * @author Dmitry Ushakov at 24.11.2021

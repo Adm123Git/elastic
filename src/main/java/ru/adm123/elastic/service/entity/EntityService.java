@@ -1,4 +1,4 @@
-package ru.adm123.elastic.service;
+package ru.adm123.elastic.service.entity;
 
 /**
  * @author Dmitry Ushakov at 14.01.2022

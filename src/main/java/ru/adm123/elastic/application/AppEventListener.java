@@ -1,4 +1,4 @@
-package ru.adm123.elastic.configuration;
+package ru.adm123.elastic.application;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationStartedEvent;
@@ -54,7 +54,6 @@ public class AppEventListener {
             Author author = authorFactory.getNewAuthor(i, "authorFirstName_" + i, "authorLastName_" + i);
             authorList.add(author);
         }
-
     }
 
     public void generateBooks(int count) {

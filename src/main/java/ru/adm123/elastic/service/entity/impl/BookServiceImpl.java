@@ -1,4 +1,4 @@
-package ru.adm123.elastic.service.impl;
+package ru.adm123.elastic.service.entity.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
@@ -6,7 +6,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
 import ru.adm123.elastic.model.Book;
 import ru.adm123.elastic.repository.BookRepository;
-import ru.adm123.elastic.service.BookService;
+import ru.adm123.elastic.service.entity.BookService;
 
 /**
  * @author Dmitry Ushakov at 24.11.2021
