@@ -15,6 +15,8 @@ import ru.adm123.elastic.repository.BookRepository;
 import java.util.ArrayList;
 import java.util.List;
 
+import static ru.adm123.elastic.util.NumberUtil.getRandomInt;
+
 /**
  * @author Dmitry Ushakov at 27.11.2021
  */
@@ -70,11 +72,6 @@ public class AppEventListener {
             return authorList.get(authorIndex);
         }
         return authorFactory.getNewAuthor(authorIndex, "authorFirstName_" + authorIndex, "authorLastName_" + authorIndex);
-    }
-
-    private int getRandomInt(int min,
-                             int max) {
-        return Math.round((max - min) * (float) Math.random()) + min;
     }
 
 }

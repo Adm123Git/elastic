@@ -1,46 +1,13 @@
 package ru.adm123.elastic.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.lang.NonNull;
-import org.springframework.lang.Nullable;
-import org.springframework.stereotype.Service;
 import ru.adm123.elastic.model.Author;
 import ru.adm123.elastic.model.Book;
-import ru.adm123.elastic.repository.AuthorRepository;
-import ru.adm123.elastic.repository.BookRepository;
 
 /**
- * @author Dmitry Ushakov at 24.11.2021
+ * @author Dmitry Ushakov at 14.01.2022
  */
-@Service
-public class AuthorService {
+public interface AuthorService extends EntityService<Author> {
 
-    @NonNull
-    private final AuthorRepository authorRepository;
-    @NonNull
-    private final BookRepository bookRepository;
-
-    @Autowired
-    public AuthorService(@NonNull AuthorRepository authorRepository,
-                         @NonNull BookRepository bookRepository) {
-        this.authorRepository = authorRepository;
-        this.bookRepository = bookRepository;
-    }
-
-    @NonNull
-    public Iterable<Author> getAll() {
-        return authorRepository.findAll();
-    }
-
-    @NonNull
-    public Iterable<Book> getBooks(int authorId) {
-        return bookRepository.findAllByAuthorId(authorId);
-    }
-
-    @Nullable
-    public Author getById(long id) {
-        return authorRepository.findById(id)
-                .orElse(null);
-    }
+    Iterable<Book> getBooks(int authorId);
 
 }
