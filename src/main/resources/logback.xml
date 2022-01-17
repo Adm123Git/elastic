@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+
+    <property name="linePattern" value="%-5p %d{dd.MMM.yyyy HH:mm:ss} %m%n"/>
+    <property name="logFilePrefix" value="log/application"/>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${linePattern}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="APPLICATION" class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+        <file>${logFilePrefix}.log</file>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${commonLogFilePrefix}-%d{dd-MM-yyyy}-%i.log</fileNamePattern>
+            <maxHistory>2</maxHistory>
+            <totalSizeCap>50MB</totalSizeCap>
+            <maxFileSize>20MB</maxFileSize>
+        </rollingPolicy>
+
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <charset>UTF-8</charset>
+            <pattern>${linePattern}</pattern>
+        </encoder>
+
+        <filter class="ru.adm123.elastic.application.LogFilter">
+            <level>INFO</level>
+        </filter>
+
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="APPLICATION"/>
+    </root>
+
+</configuration>

@@ -8,6 +8,6 @@ import ru.adm123.elastic.model.Book;
  */
 public interface AuthorService extends EntityService<Author> {
 
-    Iterable<Book> getBooks(int authorId);
+    Iterable<Book> getBooks(long authorId);
 
 }
