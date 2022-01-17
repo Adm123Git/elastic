@@ -1,5 +1,6 @@
 package ru.adm123.elastic.application;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationStartedEvent;
 import org.springframework.context.event.EventListener;
@@ -20,6 +21,7 @@ import static ru.adm123.elastic.util.NumberUtil.getRandomInt;
 /**
  * @author Dmitry Ushakov at 27.11.2021
  */
+@Slf4j
 @Component
 public class AppEventListener {
 
@@ -50,6 +52,7 @@ public class AppEventListener {
         generateBooks();
         authorRepository.saveAll(authorList);
         bookRepository.saveAll(bookList);
+        log.info("Application started");
     }
 
     private void generateAuthors() {

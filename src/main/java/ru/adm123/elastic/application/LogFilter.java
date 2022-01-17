@@ -17,10 +17,7 @@ public class LogFilter extends Filter<ILoggingEvent> {
 
     @Override
     public FilterReply decide(ILoggingEvent event) {
-
-
-
-        return isStarted() && event.getLoggerName().equals(APPLICATION_LOG)
+        return isStarted() && event.getLevel().isGreaterOrEqual(level) && event.getLoggerName().equals(APPLICATION_LOG)
                 ? FilterReply.ACCEPT
                 : FilterReply.DENY;
     }

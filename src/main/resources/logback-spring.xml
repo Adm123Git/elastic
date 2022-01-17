@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+
+    <property name="linePattern" value="%-5p %d{dd.MMM.yyyy HH:mm:ss} %m%n"/>
+    <property name="logFilePrefixProd" value="log/application-prod"/>
+    <property name="logFilePrefixDev" value="log/application-dev"/>
+
+    <springProfile name="dev">
+
+        <appender name="APPLICATION" class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+            <file>${logFilePrefixDev}.log</file>
+
+            <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+                <fileNamePattern>${logFilePrefixDev}-%d{dd-MM-yyyy}-%i.log</fileNamePattern>
+                <maxHistory>2</maxHistory>
+                <totalSizeCap>50MB</totalSizeCap>
+                <maxFileSize>20MB</maxFileSize>
+            </rollingPolicy>
+
+            <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+                <charset>UTF-8</charset>
+                <pattern>${linePattern}</pattern>
+            </encoder>
+
+            <filter class="ru.adm123.elastic.application.LogFilter">
+                <level>INFO</level>
+            </filter>
+
+        </appender>
+
+        <logger name="ru.adm123.elastic.Application" level="ERROR"/>
+        <logger name="org.apache.catalina.core.StandardService" level="ERROR"/>
+        <logger name="org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]" level="ERROR"/>
+        <logger name="org.apache.catalina.core.StandardEngine" level="ERROR"/>
+        <logger name="org.elasticsearch.client.RestClient" level="ERROR"/>
+        <logger name="org.springframework" level="ERROR"/>
+        <logger name="Application" level="INFO"/>
+        <root level="INFO">
+            <appender-ref ref="APPLICATION"/>
+        </root>
+
+    </springProfile>
+
+    <springProfile name="prod">
+
+        <appender name="APPLICATION" class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+            <file>${logFilePrefixProd}.log</file>
+
+            <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+                <fileNamePattern>${logFilePrefixProd}-%d{dd-MM-yyyy}-%i.log</fileNamePattern>
+                <maxHistory>2</maxHistory>
+                <totalSizeCap>50MB</totalSizeCap>
+                <maxFileSize>20MB</maxFileSize>
+            </rollingPolicy>
+
+            <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+                <charset>UTF-8</charset>
+                <pattern>${linePattern}</pattern>
+            </encoder>
+
+            <filter class="ru.adm123.elastic.application.LogFilter">
+                <level>WARN</level>
+            </filter>
+
+        </appender>
+
+        <root level="WARN">
+            <appender-ref ref="APPLICATION"/>
+        </root>
+
+    </springProfile>
+
+</configuration>

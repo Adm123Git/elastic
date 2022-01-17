@@ -1,5 +1,10 @@
 server:
   port: 8081
+spring:
+  banner:
+    location: classpath:banner.txt
+  profiles:
+    active: dev
 init:
   book:
     count: 30
