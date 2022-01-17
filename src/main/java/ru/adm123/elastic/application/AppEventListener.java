@@ -49,14 +49,14 @@ public class AppEventListener {
         bookRepository.saveAll(bookList);
     }
 
-    public void generateAuthors(int count) {
+    private void generateAuthors(int count) {
         for (int i = 0; i++ < count; ) {
             Author author = authorFactory.getNewAuthor(i, "authorFirstName_" + i, "authorLastName_" + i);
             authorList.add(author);
         }
     }
 
-    public void generateBooks(int count) {
+    private void generateBooks(int count) {
         for (int i = 0; i++ < count; ) {
             Author author = getRandomAuth();
             bookList.add(bookFactory.getNewBook(i, "bookTitle_" + i, author));
@@ -70,7 +70,9 @@ public class AppEventListener {
         if (!authorList.isEmpty()) {
             return authorList.get(authorIndex);
         }
-        return authorFactory.getNewAuthor(authorIndex, "authorFirstName_" + authorIndex, "authorLastName_" + authorIndex);
+        Author author = authorFactory.getNewAuthor(authorIndex, "authorFirstName_" + authorIndex, "authorLastName_" + authorIndex);
+        authorList.add(author);
+        return author;
     }
 
 }

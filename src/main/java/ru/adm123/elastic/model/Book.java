@@ -1,8 +1,7 @@
 package ru.adm123.elastic.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
@@ -26,6 +25,7 @@ public class Book {
     private String title;
     @Field(type = FieldType.Date)
     private Date created;
+    @JsonIgnore
     @Field(type = FieldType.Nested, includeInParent = true)
     private Author author;
 
