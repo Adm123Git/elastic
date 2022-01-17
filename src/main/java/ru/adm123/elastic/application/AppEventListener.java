@@ -23,6 +23,7 @@ import static ru.adm123.elastic.util.NumberUtil.getRandomInt;
 @Component
 public class AppEventListener {
 
+    private final InitProperties initProperties;
     private final AuthorFactory authorFactory;
     private final BookFactory bookFactory;
     private final AuthorRepository authorRepository;
@@ -31,10 +32,12 @@ public class AppEventListener {
     private final List<Book> bookList = new ArrayList<>();
 
     @Autowired
-    public AppEventListener(AuthorFactory authorFactory,
+    public AppEventListener(InitProperties initProperties,
+                            AuthorFactory authorFactory,
                             BookFactory bookFactory,
                             AuthorRepository authorRepository,
                             BookRepository bookRepository) {
+        this.initProperties = initProperties;
         this.authorFactory = authorFactory;
         this.bookFactory = bookFactory;
         this.authorRepository = authorRepository;
@@ -42,22 +45,22 @@ public class AppEventListener {
     }
 
     @EventListener(ApplicationStartedEvent.class)
-    public void handleEvent(@NonNull ApplicationStartedEvent event) {
-        generateAuthors(5);
-        generateBooks(20);
+    public void handleEvent() {
+        generateAuthors();
+        generateBooks();
         authorRepository.saveAll(authorList);
         bookRepository.saveAll(bookList);
     }
 
-    private void generateAuthors(int count) {
-        for (int i = 0; i++ < count; ) {
+    private void generateAuthors() {
+        for (int i = 0; i++ < initProperties.getAuthor().getCount();) {
             Author author = authorFactory.getNewAuthor(i, "authorFirstName_" + i, "authorLastName_" + i);
             authorList.add(author);
         }
     }
 
-    private void generateBooks(int count) {
-        for (int i = 0; i++ < count; ) {
+    private void generateBooks() {
+        for (int i = 0; i++ < initProperties.getBook().getCount();) {
             Author author = getRandomAuth();
             bookList.add(bookFactory.getNewBook(i, "bookTitle_" + i, author));
         }

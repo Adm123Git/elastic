@@ -1,0 +1,38 @@
+{
+  "groups": [
+    {
+      "name": "init",
+      "type": "ru.adm123.elastic.application.InitProperties",
+      "sourceType": "ru.adm123.elastic.application.InitProperties",
+      "description": "Initial application data."
+    },
+    {
+      "name": "init.book",
+      "type": "ru.adm123.elastic.application.InitProperties$Book",
+      "sourceType": "ru.adm123.elastic.application.InitProperties",
+      "sourceMethod": "getBook()"
+    },
+    {
+      "name": "init.author",
+      "type": "ru.adm123.elastic.application.InitProperties$Author",
+      "sourceType": "ru.adm123.elastic.application.InitProperties",
+      "sourceMethod": "getAuthor()"
+    }
+  ],
+  "properties": [
+    {
+      "name": "init.book.count",
+      "type": "java.lang.Integer",
+      "sourceType": "ru.adm123.elastic.application.InitProperties$Book",
+      "description": "Count of books for save to elastic on application start.",
+      "defaultValue": 20
+    },
+    {
+      "name": "init.author.count",
+      "type": "java.lang.Integer",
+      "sourceType": "ru.adm123.elastic.application.InitProperties$Author",
+      "description": "Count of authors for save to elastic on application start.",
+      "defaultValue": 5
+    }
+  ]
+}

@@ -1,2 +1,7 @@
 server:
   port: 8081
+init:
+  book:
+    count: 30
+  author:
+    count: 8
