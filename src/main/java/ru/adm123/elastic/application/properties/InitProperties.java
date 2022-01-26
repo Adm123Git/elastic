@@ -1,4 +1,4 @@
-package ru.adm123.elastic.application;
+package ru.adm123.elastic.application.properties;
 
 import lombok.Getter;
 import lombok.Setter;

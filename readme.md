@@ -1,4 +1,4 @@
-Небольшое приложение-демка ElasticSearch
+###Небольшое приложение-демка ElasticSearch
 ***
 Перед стартом необходимо запустить сервер elasicSearch на стандартном порту 9200.
 
@@ -8,6 +8,7 @@
 - /book/all (список книг)
 - /book/`{bookId}` (книга по ее id)
 - /book/author/`{authorId}` (список книг автора по его id)
+- /book/created/from=`{yyyy-MM-dd}`&to=`{yyyy-MM-dd}` (книги, опубликованные в диапазоне дат)
 - /author/all (список авторов)
 - /author/`{authorId}` (автор по его id)
 - /author/`{authorId}`/book (список книг автора по его id)

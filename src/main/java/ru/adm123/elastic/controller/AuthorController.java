@@ -38,7 +38,7 @@ public class AuthorController {
         return authorService.getById(authorId);
     }
 
-    @Nullable
+    @NonNull
     @GetMapping("/{authorId}/book")
     public Iterable<Book> getBooksByAuthorId(@PathVariable int authorId) {
         return authorService.getBooks(authorId);

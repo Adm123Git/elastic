@@ -3,12 +3,11 @@ package ru.adm123.elastic.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ru.adm123.elastic.model.Book;
 import ru.adm123.elastic.service.entity.BookService;
+
+import java.text.ParseException;
 
 /**
  * @author Dmitry Ushakov at 28.11.2021
@@ -37,10 +36,17 @@ public class BookController {
         return bookService.getById(bookId);
     }
 
-    @Nullable
+    @NonNull
     @GetMapping("/author/{authorId}")
     public Iterable<Book> getAllByAuthorId(@PathVariable int authorId) {
         return bookService.getByAuthorId(authorId);
+    }
+
+    @NonNull
+    @GetMapping("/created/")
+    public Iterable<Book> getAllCreatedInRange(@RequestParam("from") String strDateFrom,
+                                               @RequestParam("to") String strDateTo) throws ParseException {
+        return bookService.getByCreatedDateRange(strDateFrom, strDateTo);
     }
 
 }

@@ -2,37 +2,56 @@
   "groups": [
     {
       "name": "init",
-      "type": "ru.adm123.elastic.application.InitProperties",
-      "sourceType": "ru.adm123.elastic.application.InitProperties",
+      "type": "ru.adm123.elastic.application.properties.InitProperties",
+      "sourceType": "ru.adm123.elastic.application.properties.InitProperties",
       "description": "Initial application data."
     },
     {
       "name": "init.book",
-      "type": "ru.adm123.elastic.application.InitProperties$Book",
-      "sourceType": "ru.adm123.elastic.application.InitProperties",
+      "type": "ru.adm123.elastic.application.properties.InitProperties$Book",
+      "sourceType": "ru.adm123.elastic.application.properties.InitProperties",
       "sourceMethod": "getBook()"
     },
     {
       "name": "init.author",
-      "type": "ru.adm123.elastic.application.InitProperties$Author",
-      "sourceType": "ru.adm123.elastic.application.InitProperties",
+      "type": "ru.adm123.elastic.application.properties.InitProperties$Author",
+      "sourceType": "ru.adm123.elastic.application.properties.InitProperties",
       "sourceMethod": "getAuthor()"
+    },
+    {
+      "name": "format",
+      "type": "ru.adm123.elastic.application.properties.FormatProperties",
+      "sourceType": "ru.adm123.elastic.application.properties.FormatProperties",
+      "description": "Formats of data which endpoints receive in requests."
+    },
+    {
+      "name": "format.query",
+      "type": "ru.adm123.elastic.application.properties.FormatProperties$Request",
+      "sourceType": "ru.adm123.elastic.application.properties.FormatProperties",
+      "sourceMethod": "getQuery()"
     }
   ],
   "properties": [
     {
       "name": "init.book.count",
       "type": "java.lang.Integer",
-      "sourceType": "ru.adm123.elastic.application.InitProperties$Book",
+      "sourceType": "ru.adm123.elastic.application.properties.InitProperties$Book",
       "description": "Count of books for save to elastic on application start.",
       "defaultValue": 20
     },
     {
       "name": "init.author.count",
       "type": "java.lang.Integer",
-      "sourceType": "ru.adm123.elastic.application.InitProperties$Author",
+      "sourceType": "ru.adm123.elastic.application.properties.InitProperties$Author",
       "description": "Count of authors for save to elastic on application start.",
       "defaultValue": 5
+    },
+    {
+      "name": "format.query.date",
+      "type": "java.lang.String",
+      "sourceType": "ru.adm123.elastic.application.properties.FormatProperties$Request",
+      "description": "Format of date in request.",
+      "defaultValue": "yyyy-MM-dd"
     }
   ]
 }

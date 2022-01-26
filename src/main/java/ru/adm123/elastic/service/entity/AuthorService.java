@@ -1,5 +1,6 @@
 package ru.adm123.elastic.service.entity;
 
+import org.springframework.lang.NonNull;
 import ru.adm123.elastic.model.Author;
 import ru.adm123.elastic.model.Book;
 
@@ -8,6 +9,7 @@ import ru.adm123.elastic.model.Book;
  */
 public interface AuthorService extends EntityService<Author> {
 
+    @NonNull
     Iterable<Book> getBooks(long authorId);
 
 }

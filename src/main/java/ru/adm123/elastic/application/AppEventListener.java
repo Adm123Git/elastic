@@ -1,11 +1,13 @@
 package ru.adm123.elastic.application;
 
 import lombok.extern.slf4j.Slf4j;
+import org.elasticsearch.action.admin.indices.delete.DeleteIndexRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationStartedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
+import ru.adm123.elastic.application.properties.InitProperties;
 import ru.adm123.elastic.factory.AuthorFactory;
 import ru.adm123.elastic.factory.BookFactory;
 import ru.adm123.elastic.model.Author;
@@ -13,7 +15,10 @@ import ru.adm123.elastic.model.Book;
 import ru.adm123.elastic.repository.AuthorRepository;
 import ru.adm123.elastic.repository.BookRepository;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import static ru.adm123.elastic.util.NumberUtil.getRandomInt;
@@ -48,6 +53,8 @@ public class AppEventListener {
 
     @EventListener(ApplicationStartedEvent.class)
     public void handleEvent() {
+        bookRepository.deleteAll();
+        authorRepository.deleteAll();
         generateAuthors();
         generateBooks();
         authorRepository.saveAll(authorList);

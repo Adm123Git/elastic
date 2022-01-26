@@ -10,3 +10,6 @@ init:
     count: 30
   author:
     count: 8
+format:
+  request:
+    date: "yyyy-MM-dd"

@@ -18,6 +18,9 @@ public class BookFactory {
     public Book getNewBook(long id,
                            String title,
                            Author author) {
+
+        System.out.println(id + " - " + new Date());
+
         return new Book(id, title, new Date(), author);
     }
 
